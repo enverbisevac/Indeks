@@ -1,0 +1,40 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModelIndeks"
+            type="rs.edu.student.indeks.models.IndeksViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="rs.edu.student.indeks.fragments.FotoFragment">
+
+        <TextView
+            android:id="@+id/jmbg_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:gravity="center"
+            android:text="@{viewModelIndeks.indeks.jmbg}"
+            />
+
+        <ImageView
+            android:id="@+id/photo_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:padding="16dp"
+            android:id="@+id/fullname_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="@{viewModelIndeks.fullName}"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</layout>

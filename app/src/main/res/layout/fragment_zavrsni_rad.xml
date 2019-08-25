@@ -1,0 +1,59 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="zavrsniRadViewModel"
+            type="rs.edu.student.indeks.models.ZavrsniRadViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="rs.edu.student.indeks.fragments.ZavrsniRadFragment"
+            android:padding="8dp">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView android:text="Naslov rada:" android:padding="8dp"/>
+                    <View android:layout_width="2dp" android:layout_height="match_parent" android:background="@color/black" />
+                    <TextView android:text="@{zavrsniRadViewModel.zavrsniRad.naslov}" android:padding="8dp"/>
+                </TableRow>
+                <View android:background="@color/black" android:layout_height="2dp" android:layout_width="match_parent" />
+                <TableRow>
+                    <TextView android:text="ESPB:" android:padding="8dp"/>
+                    <View android:layout_width="2dp" android:layout_height="match_parent" android:background="@color/black" />
+                    <TextView android:text="@{String.valueOf(zavrsniRadViewModel.zavrsniRad.espb)}" android:padding="8dp"/>
+                </TableRow>
+                <View android:background="@color/black" android:layout_height="2dp" android:layout_width="match_parent" />
+                <TableRow>
+                    <TextView android:text="Datum:" android:padding="8dp"/>
+                    <View android:layout_width="2dp" android:layout_height="match_parent" android:background="@color/black" />
+                    <TextView android:text="@{zavrsniRadViewModel.getDatumAsString}" android:padding="8dp"/>
+                </TableRow>
+                <View android:background="@color/black" android:layout_height="2dp" android:layout_width="match_parent" />
+                <TableRow>
+                    <TextView android:text="Ocena:" android:padding="8dp"/>
+                    <View android:layout_width="2dp" android:layout_height="match_parent" android:background="@color/black" />
+                    <TextView android:text="@{String.valueOf(zavrsniRadViewModel.zavrsniRad.ocena)}" android:padding="8dp"/>
+                </TableRow>
+                <View android:background="@color/black" android:layout_height="2dp" android:layout_width="match_parent" />
+            </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TableRow>
+                    <TextView android:text="Komisija za odbarnu" android:padding="8dp" android:gravity="center"
+                        android:layout_weight="1"/>
+                    <View android:layout_width="2dp" android:layout_height="match_parent" android:background="@color/black" />
+                    <TextView android:text="Potpis" android:padding="8dp" android:gravity="center"
+                        android:layout_weight="1"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

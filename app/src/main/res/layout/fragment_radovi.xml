@@ -1,0 +1,104 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="radViewModel"
+            type="rs.edu.student.indeks.models.RadViewModel" />
+    </data>
+    <FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="rs.edu.student.indeks.fragments.RadoviFragment">
+
+        <ListView
+            android:id="@+id/radovi_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+        <com.wunderlist.slidinglayer.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slidingLayer1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            slidingLayer:stickTo="bottom"
+            slidingLayer:shadowSize="4dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/athens_gray">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="@{radViewModel.rad.naslov}"
+                    android:padding="8dp"
+                    android:textColor="@color/white"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TableLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp">
+                        <TableRow
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:text="Predmet:"/>
+                            <TextView
+                                android:text="@{radViewModel.rad.nazivPredmeta}"
+                                android:gravity="end"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:text="Školska godina:"/>
+                            <TextView
+                                android:text="@{radViewModel.skolskaGodinaAsString}"
+                                android:gravity="end"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:text="Broj sati:"/>
+                            <TextView
+                                android:text="@{String.valueOf(radViewModel.rad.brojSati)}"
+                                android:gravity="end"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:text="Broj poena:"/>
+                            <TextView
+                                android:text="@{String.valueOf(radViewModel.rad.brojPoena)}"
+                                android:gravity="end"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:text="Datum overe:"/>
+                            <TextView
+                                android:text="@{String.valueOf(radViewModel.datumOvereAsString)}"
+                                android:gravity="end"/>
+                        </TableRow>
+                    </TableLayout>
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="12dp">
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_file_download_black_24dp"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.wunderlist.slidinglayer.SlidingLayer>
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/godina_zaglavlje_layout" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/godina_list"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+        <com.wunderlist.slidinglayer.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slidingLayer1"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            slidingLayer:stickTo="right"
+            slidingLayer:shadowSize="4dp"
+            android:layout_gravity="end">
+            <LinearLayout
+                android:id="@+id/godina_list_adv"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+            </LinearLayout>
+        </com.wunderlist.slidinglayer.SlidingLayer>
+    </FrameLayout>
+    <include layout="@layout/godina_futer_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        />
+</LinearLayout>

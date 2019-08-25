@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModelIndeks"
+            type="rs.edu.student.indeks.models.IndeksViewModel" />
+        <variable
+            name="dateFormat"
+            type="java.text.DateFormat" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ustanova_text"
+            android:text="@{viewModelIndeks.indeks.naziv1}"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textAlignment="center"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="14dp"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:text="STUDENTSKA KNJIŽICA INDEKS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/naslov_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/broj_indeksa_text" />
+
+        <TextView
+            android:text="@{viewModelIndeks.fullName}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ime_prezime_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="normal|italic"
+            android:typeface="monospace"
+            tools:layout_constraintTop_creator="1"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/naslov_text"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:text='@{String.format("Broj Indeksa: %s", viewModelIndeks.indeks.broj)}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/broj_indeksa_text"
+            android:textStyle="normal|bold"
+            android:textSize="16sp"
+            android:fontFamily="monospace"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/ustanova_text" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.imeRoditelja}"
+            android:layout_height="wrap_content"
+            android:id="@+id/ime_roditelja_text"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ime_prezime_text"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp"
+            android:layout_width="150dp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintTop_toBottomOf="@+id/ime_roditelja_text"
+            android:layout_marginTop="2dp" />
+        <TextView
+            android:text="(ime jednog roditelja)"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ime_roditelja_opis_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="10sp"
+            tools:layout_constraintTop_creator="1"
+            app:layout_constraintTop_toBottomOf="@+id/ime_roditelja_text"
+            android:textAlignment="center"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:text="(datum rodjenja)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datum_rodjenja_opis_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/datum_rodjenja_text"
+            android:textAlignment="center"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text" />
+
+        <TextView
+            android:text='@{viewModelIndeks.indeks.datumRodjenja != null ? dateFormat.format(viewModelIndeks.indeks.datumRodjenja): ""}'
+            android:layout_height="wrap_content"
+            android:id="@+id/datum_rodjenja_text"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ime_prezime_text"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:textSize="16sp"
+            android:layout_width="150dp" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.mestoRodjenja}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mesto_rodjenja_text"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/ime_roditelja_opis_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            android:textAlignment="center"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/opstina_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/datum_rodjenja_opis_text"
+            android:text="@{viewModelIndeks.indeks.opstinaRodjenja}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="(mesto rodjenja)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mesto_rodjenja_opis_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/mesto_rodjenja_text"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:text="(opština rođenja)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/opstina_rodjenja_opis_text"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/opstina_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintTop_toBottomOf="@+id/datum_rodjenja_text"
+            android:layout_marginTop="2dp"
+            android:id="@+id/view3" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintTop_toBottomOf="@+id/mesto_rodjenja_text"
+            android:layout_marginTop="2dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintTop_toBottomOf="@+id/opstina_rodjenja_text"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.drzavaRodjenja}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drzava_rodjenja_text"
+            app:layout_constraintTop_toBottomOf="@+id/mesto_rodjenja_opis_text"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintTop_toBottomOf="@+id/drzava_rodjenja_text"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:id="@+id/view" />
+
+        <TextView
+            android:text="(država rođenja)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drzava_rodjenja_opis_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/drzava_rodjenja_text"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.drzavljanstvo}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drzavljanstvo_text"
+            app:layout_constraintTop_toBottomOf="@+id/opstina_rodjenja_opis_text"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintTop_toBottomOf="@+id/drzavljanstvo_text"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="(državljanstvo)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drzavljanstvo_opis_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/drzavljanstvo_text"
+            android:layout_marginTop="4dp"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text" />
+
+        <TextView
+            android:text='@{String.format("Upisan-a je školske %d/%d godine na", viewModelIndeks.indeks.datumUpisa.getYear(), viewModelIndeks.indeks.datumUpisa.getYear() + 1 )}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/upisana_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/drzava_rodjenja_opis_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.vrstaStudija.vrsta}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/vrsta_studija_text"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/upisana_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toLeftOf="@+id/stepen_studija_text"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="@{viewModelIndeks.indeks.stepenStudija.stepen}"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/stepen_studija_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/upisana_text"
+            android:textSize="16sp"
+            android:textAlignment="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/vrsta_studija_text"
+            app:layout_constraintRight_toRightOf="@+id/vrsta_studija_text"
+            app:layout_constraintTop_toBottomOf="@+id/vrsta_studija_text"
+            android:layout_marginTop="2dp"
+            android:id="@+id/view2" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/stepen_studija_text"
+            app:layout_constraintRight_toRightOf="@+id/stepen_studija_text"
+            app:layout_constraintTop_toBottomOf="@+id/stepen_studija_text"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="(vrsta studija)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vrsta_studija_opis_text"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/vrsta_studija_text"
+            app:layout_constraintLeft_toLeftOf="@+id/vrsta_studija_text"
+            app:layout_constraintRight_toRightOf="@+id/vrsta_studija_text" />
+
+        <TextView
+            android:text="(stepen studija)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stepen_studija_opis_text"
+            app:layout_constraintRight_toRightOf="@+id/stepen_studija_text"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/stepen_studija_text"
+            android:textSize="10sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="@={viewModelIndeks.indeks.studijskiProgram}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/studijski_program_tekst"
+            app:layout_constraintLeft_toLeftOf="@+id/vrsta_studija_text"
+            app:layout_constraintRight_toRightOf="@+id/stepen_studija_text"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/vrsta_studija_opis_text" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/studijski_program_tekst"
+            app:layout_constraintRight_toRightOf="@+id/studijski_program_tekst"
+            app:layout_constraintTop_toBottomOf="@+id/studijski_program_tekst"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="(naziv studijskog programa)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/studijski_program_opis_text"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/studijski_program_tekst"
+            app:layout_constraintLeft_toLeftOf="@+id/studijski_program_tekst"
+            app:layout_constraintRight_toRightOf="@+id/studijski_program_tekst" />
+
+        <TextView
+            android:text='@{viewModelIndeks.indeks.datumUpisa != null ? dateFormat.format(viewModelIndeks.indeks.datumUpisa) : ""}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datum_upisa_text"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/studijski_program_tekst"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/studijski_program_opis_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text"
+            app:layout_constraintTop_toBottomOf="@+id/datum_upisa_text"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="@{String.valueOf(viewModelIndeks.indeks.espb)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/espb_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/studijski_program_opis_text"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text"
+            app:layout_constraintTop_toBottomOf="@+id/espb_text"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:text="(datum upisa)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datum_upisa_opis_text"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/datum_upisa_text"
+            app:layout_constraintLeft_toLeftOf="@+id/ime_roditelja_text"
+            app:layout_constraintRight_toRightOf="@+id/ime_roditelja_text" />
+
+        <TextView
+            android:text="(espb predviđeno)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/espb_opis_text"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/espb_text"
+            app:layout_constraintLeft_toLeftOf="@+id/datum_rodjenja_text"
+            app:layout_constraintRight_toRightOf="@+id/datum_rodjenja_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

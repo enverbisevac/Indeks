@@ -1,0 +1,109 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="praksaViewModel"
+            type="rs.edu.student.indeks.models.PraksaViewModel" />
+    </data>
+    <FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="rs.edu.student.indeks.fragments.PraksaFragment">
+
+        <ListView
+            android:id="@+id/praksa_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+        <com.wunderlist.slidinglayer.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slidingLayer1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            slidingLayer:stickTo="bottom"
+            slidingLayer:shadowSize="4dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/athens_gray">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="@{praksaViewModel.praksa.podrucjePrakse}"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp">
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Školska godina:"/>
+                        <TextView
+                            android:text="@{praksaViewModel.skolskaGodinaAsString}"
+                            android:gravity="end"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Ustanova:"/>
+                        <TextView
+                            android:text="@{praksaViewModel.praksa.ustanova}"
+                            android:gravity="end"
+                            android:maxLines="2"
+                            android:ellipsize="end"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Vremenski period:"/>
+                        <TextView
+                            android:text="@{praksaViewModel.praksa.vremenskiPeriod}"
+                            android:gravity="end"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Broj sati:"/>
+                        <TextView
+                            android:text="@{String.valueOf(praksaViewModel.praksa.brojSati)}"
+                            android:gravity="end"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Broj poena:"/>
+                        <TextView
+                            android:text="@{String.valueOf(praksaViewModel.praksa.brojPoena)}"
+                            android:gravity="end"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Podrucije prakse:"/>
+                        <TextView
+                            android:text="@{praksaViewModel.praksa.podrucjePrakse}"
+                            android:gravity="end"
+                            android:layout_height="wrap_content"/>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginTop="8dp">
+                        <TextView
+                            android:text="Datum overe:"/>
+                        <TextView
+                            android:text="@{String.valueOf(praksaViewModel.datumOvereAsString)}"
+                            android:gravity="end"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </com.wunderlist.slidinglayer.SlidingLayer>
+    </FrameLayout>
+
+</layout>

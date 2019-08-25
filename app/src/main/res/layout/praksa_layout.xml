@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="item"
+            type="rs.edu.student.indeks.models.PraksaViewModel" />
+    </data>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/podrucije_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{item.praksa.podrucjePrakse}"/>
+
+        <TextView
+            android:id="@+id/datum_overe_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="@{item.datumOvereAsString}"/>
+    </LinearLayout>
+</layout>

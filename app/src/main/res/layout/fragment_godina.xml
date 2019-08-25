@@ -1,0 +1,177 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="predmetViewModel"
+            type="rs.edu.student.indeks.models.PredmetViewModel" />
+    </data>
+    <FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="rs.edu.student.indeks.fragments.GodinaFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/linear_content"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+        </ScrollView>
+        <com.wunderlist.slidinglayer.SlidingLayer
+            xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slidingLayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            slidingLayer:stickTo="bottom"
+            slidingLayer:shadowSize="4dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/athens_gray">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="@{predmetViewModel.predmet.naziv}"
+                    android:padding="8dp"
+                    android:textColor="@color/white"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{predmetViewModel.predmet.sifra}"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(sifra predmeta)"
+                            android:gravity="center"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(predmetViewModel.predmet.espb)}"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(espb bodova)"
+                            android:gravity="center"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{predmetViewModel.predmet.status.opis}"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(obavezni, izborni)"
+                            android:gravity="center"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/black" />
+                <LinearLayout
+                    android:id="@+id/list_obaveze"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </LinearLayout>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TableRow>
+                        <TextView android:text="Zaključna ocena" android:layout_weight="0.6" android:padding="8dp"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+                        <TextView android:text='@{predmetViewModel.predmet.ocena.ocena != 0 ? String.valueOf(predmetViewModel.predmet.ocena.ocena) + " " + String.format("(%s)", predmetViewModel.predmet.ocena.slovima) : ""}' android:layout_weight="0.42"
+                            android:padding="8dp"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+                    </TableRow>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/black" />
+                    <TableRow>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.6"
+                            android:text="Nastavnik"
+                            android:padding="8dp"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.35"
+                            android:padding="8dp"
+                            android:text="@{predmetViewModel.predmet.nastavnik}"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+                    </TableRow>
+                </TableLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black" />
+            </LinearLayout>
+        </com.wunderlist.slidinglayer.SlidingLayer>
+    </FrameLayout>
+
+</layout>

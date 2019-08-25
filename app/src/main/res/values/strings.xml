@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Indeks</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ime_prezime">Ime i prezime</string>
+    <string name="nfc_disabled">NFC je iskljucen.</string>
+    <string name="service_name">Indeks Card service</string>
+    <string name="card_title">Indeks kartica</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/nacin_finansiranja_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="samofinansiranje"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:maxLines="1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(način finansiranja)"
+            android:gravity="center"
+            android:textSize="10sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/datum_upisa_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="11.10.2010."
+            android:gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(datum upisa)"
+            android:gravity="center"
+            android:textSize="10sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/espb_ukupno_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="37"
+            android:gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(ukupno espb)"
+            android:gravity="center"
+            android:textSize="10sp"/>
+    </LinearLayout>
+</LinearLayout>

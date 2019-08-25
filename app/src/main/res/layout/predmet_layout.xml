@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/sifra_predmeta_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:text="IOA001"
+            android:padding="8dp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/athens_gray" />
+
+        <TextView
+            android:id="@+id/naziv_predmeta_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:text="Programiranje 1"
+            android:padding="8dp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/athens_gray" />
+
+        <TextView
+            android:id="@+id/status_predmeta_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
+            android:text="Obavezan"
+            android:padding="8dp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <View
+            android:id="@+id/blank_view"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/athens_gray" />
+</LinearLayout>
